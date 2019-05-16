@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'ca.tourism.platform'
+version = '0.0.1'
+
+description = """arawaks-sdk"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version:'4.5.8'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.6.3'
+    compile group: 'com.google.maps', name: 'google-maps-services', version:'0.9.3'
+    compile group: 'com.mapbox.mapboxsdk', name: 'mapbox-sdk-services', version:'4.5.0'
+}

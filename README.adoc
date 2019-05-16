@@ -1,0 +1,60 @@
+= Arawaks Java SDK
+
+This SDK provides functionalities to establish communication with the different APIs published in the address https://api.opencaribbean.org
+
+== Installation and Getting Started
+
+* Clone this project (git clone https://github.com/arawakcaribbean/arawak-android-sdk.git)
+* Run: 
+
+[source,java,indent=0]
+----
+	gradle install
+----
+
+* Use as dependency in Android projects:
+
+[source,java,indent=0]
+----
+
+	implementation ‘ca.tourism.platform:arawaks-sdk:0.0.1’ 
+
+----
+
+== Available classes
+
+* BookableProvider
+* BookingProvider
+* ClaimProvider
+* CountryProvider
+* LocationProvider
+* MailSenderProvider
+* ResourceProvider
+* ReviewsProvider
+* StatsProvider
+
+== Example and use
+
+[source,java,indent=0]
+----
+
+public class Run {
+
+	public static void main(String[] args) {
+		CountryProvider countryProvider = new CountryProvider("secretToken*") ;
+		Country country = new Country("countryName", "CN", "capitalName", new LinkedList<String>(), 0.0, 0.0) ;
+		try {
+
+			// POST example
+			Country response = countryProvider.createCountry(country) ;
+			System.out.println(response.toString());
+			
+		} catch (HttpException e) {
+			System.out.println("[ERROR] - " + e.getMessage());
+		}
+	}
+}
+
+----
+
+NOTE: The secretToken* is empty for the moment.
